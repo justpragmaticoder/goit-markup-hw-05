@@ -351,26 +351,45 @@
           <use href="./images/icons.svg#icon-close-black-18dp"></use>
         </svg>
       </button>
-      <form action="" class="contact-form">
+      <form action="#" class="contact-form">
         <p class="contact-form-title">Leave your contacts and we will call you back</p>
-        <label for="contact-username" class="contact-form-common-label">
-          <span>Name</span>
-          <input type="text" id="contact-username" name="username" class="contact-form-name-input">
-        </label>
-        <label for="contact-tel" class="contact-form-common-label">
-          <span>Phone</span>
-          <input type="tel" id="contact-tel" name="mobile-phone">
-        </label>
-        <label for="contact-email" class="contact-form-common-label">
-          <span>Email</span>
-          <input type="email" id="contact-email" name="email">
-        </label>
+        <div class="form-element-wrapper">
+          <label for="contact-username" class="contact-form-common-label">
+            <span>Name</span>
+            <input type="text" id="contact-username" name="username" class="contact-form-name-input">
+          </label>
+          <svg class="contact-username-icon">
+            <use href="./images/icons.svg#icon-person-black-18dp-1"></use>
+          </svg>
+        </div>
+        <div class="form-element-wrapper">
+          <label for="contact-tel" class="contact-form-common-label">
+            <span>Phone</span>
+            <input type="tel" id="contact-tel" name="mobile-phone">
+          </label>
+          <svg class="contact-tel-icon">
+            <use href="./images/icons.svg#icon-phone-black-18dp-1"></use>
+          </svg>
+        </div>
+        <div class="form-element-wrapper">
+          <label for="contact-email" class="contact-form-common-label">
+            <span>Email</span>
+            <input type="email" id="contact-email" name="email">
+          </label>
+          <svg class="contact-email-icon">
+            <use href="./images/icons.svg#icon-email-black-18dp-1"></use>
+          </svg>
+        </div>
         <label for="contact-comment" class="contact-form-common-label">
           <span>Comment</span>
-          <textarea id="contact-comment" name="comment" class="contact-form-comment-textarea"></textarea>
+          <textarea id="contact-comment" name="comment" class="contact-form-comment-textarea" placeholder="Text input"></textarea>
         </label>
         <label for="contact-accept-conditions" class="contact-form-checkbox-label">
-          <input type="checkbox" ide="contact-accept-conditions" name="accept-conditions">
+          <input type="checkbox" id="contact-accept-conditions" name="accept-conditions" class="check-input">
+          <span class="check-box"></span>
+          <svg class="check-box-checked-icon">
+            <use href="./images/icons.svg#icon-checked"></use>
+          </svg>
           <span>I accept the terms and conditions of the <a href="_blank">Privacy Policy</a></span>
         </label>
         <button type="submit" class="contact-form-button">
@@ -425,23 +444,17 @@
         </ul>
       </div>
       <div class="sub-container">
-        <form action="">
-          <ul class="list section-list">
-            <li>
-              <label>
-                <p class="footer-sub-container-header">Subscribe</p>
-                <input type="email" name="user_email" placeholder="E-mail" class="footer-email">
-              </label>
-            </li>
-            <li>
-              <button type="submit" class="subscribe-button">
-                <span>Subscribe</span>
-                <svg class="subscribe-button-icon">
-                  <use href="./images/icons.svg#icon-frame-3"></use>
-                </svg>
-              </button>
-            </li>
-          </ul>
+        <form action="#">
+          <label>
+            <span class="footer-sub-container-header">Subscribe</span>
+            <input type="email" name="user_email" placeholder="E-mail" class="footer-email">
+          </label>
+          <button type="submit" class="subscribe-button">
+            <span>Subscribe</span>
+            <svg class="subscribe-button-icon">
+              <use href="./images/icons.svg#icon-frame-3"></use>
+            </svg>
+          </button>
         </form>
       </div>
     </div>

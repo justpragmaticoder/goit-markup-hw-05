@@ -518,6 +518,7 @@ img {
 }
 
 .footer-sub-container-header {
+  display: block;
   margin-bottom: 16px;
   color: var(--white);
   font-size: 16px;
@@ -542,7 +543,7 @@ img {
 }
 
 .footer-container .sub-container:nth-child(3) {
-  margin-left: 80px;
+  margin-left: auto;
 }
 
 .footer-socials-icon {
@@ -595,6 +596,7 @@ img {
 
 .modal {
   position: absolute;
+  padding: 72px 24px 24px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -610,6 +612,7 @@ img {
 .backdrop.is-hidden .modal {
   opacity: 0;
   transition-delay: 0s;
+  pointer-events: none;
 }
 
 .modal-btn {
@@ -679,16 +682,20 @@ img {
 
 .footer-email {
   background-color: inherit;
+  padding-left: 16px;
   width: 264px;
   height: 40px;
   border-radius: 4px;
   border: 1px solid var(--white);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  transition-property: color, border, outline;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 50ms;
 }
 
 .footer-email::placeholder {
   color: var(--white);
-  padding-left: 16px;
   font-size: 12px;
   line-height: 24px;
   letter-spacing: 0.48px;
@@ -704,6 +711,7 @@ img {
   display: inline-flex;
   font: 500 16px / 1.5 "Roboto", sans-serif;
   padding: 8px 24px;
+  margin-left: 24px;
   width: 165px;
   height: 40px;
   border-radius: 4px;
@@ -732,13 +740,6 @@ img {
   width: 24px;
   height: 24px;
   margin-left: 16px;
-}
-
-.contact-form {
-  display: block;
-  width: 360px;
-  margin-top: 72px;
-  margin-left: 24px;
 }
 
 .contact-form textarea {
@@ -788,7 +789,14 @@ img {
   border: 1px solid var(--iris);
 }
 
+.form-element-wrapper label:hover + svg, .form-element-wrapper label:focus svg {
+  fill: var(--iris);
+}
+
 .contact-form-comment-textarea {
+  display: block;
+  padding-top: 8px;
+  padding-left: 16px;
   width: 360px;
   height: 120px;
   border-radius: 4px;
@@ -799,6 +807,15 @@ img {
   transition-delay: 50ms;
 }
 
+.contact-form-comment-textarea::placeholder {
+  color: var(--navy-blue-modal);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 116.667% */
+  letter-spacing: 0.48px;
+}
+
 .contact-form-comment-textarea:hover, .contact-form-comment-textarea:focus {
   outline: none;
   color: var(--navy-blue);
@@ -807,6 +824,7 @@ img {
 
 .contact-form-checkbox-label {
   display: flex;
+  position: relative;
 }
 
 .contact-form-checkbox-label input {
@@ -814,17 +832,8 @@ img {
   height: 16px;
 }
 
-.contact-form-checkbox-label input[type=checkbox]:checked {
-  accent-color: var(--ocean);
-  border: 1px solid var(--iris);
-}
-
-.contact-form-checkbox-label input:hover, .contact-form-checkbox-label input:focus {
-  border: 1px solid var(--iris);
-}
-
 .contact-form-checkbox-label span {
-  margin-left: 8px;
+  margin-left: 25px;
 }
 
 .contact-form-checkbox-label input, .contact-form-checkbox-label span {
@@ -852,13 +861,86 @@ img {
   transition-delay: 50ms;
 }
 
-.contact-form-name-input:before {
-  content: "";
+.form-element-wrapper {
+  position: relative;
+}
+
+.form-element-wrapper input {
+  padding-left: 38px;
+}
+
+.form-element-wrapper svg {
   position: absolute;
-  left: 10px;
-  top: 50%;
+  z-index: -1;
+  fill: var(--navy-blue);
+  flex-shrink: 0;
+  left: 16px;
+  top: 40px;
   transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  background: url('../images/icons.svg#icon-person-black-18dp-1') no-repeat;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-delay: 50ms;
+}
+
+.contact-username-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.contact-tel-icon {
+  width: 18px;
+  height: 24px;
+}
+
+.contact-email-icon {
+  width: 18px;
+  height: 24px;
+}
+
+.check-input {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.check-box {
+  visibility: visible;
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  left: -24px;
+  top: 1px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: var(--dairy);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  box-shadow: 0 0 0 1px #2E2F4266;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-delay: 50ms;
+}
+
+.check-box-checked-icon {
+  visibility: hidden;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+}
+
+.check-input:checked + .check-box {
+  visibility: hidden;
+}
+
+.check-input:checked ~ .check-box-checked-icon {
+  visibility: visible;
+}
+
+.check-input:hover + .check-box, .check-input:focus + .check-box {
+  box-shadow: 0 0 0 1px var(--ocean);
 }
